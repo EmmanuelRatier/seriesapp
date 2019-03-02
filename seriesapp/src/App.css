@@ -1,33 +1,18 @@
-.App {
-  text-align: center;
+.my_modal {
+    margin-top:10.5em;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.content-card{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-gap: 3.5em;
+    margin: 0px 35px 5px 35px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-style {
+    margin-top: 5.5em;
 }
-
-.App-link {
-  color: #61dafb;
+.cartas {
+  margin-top: 2.8em;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.deco {
+  margin:2em;
 }
