@@ -10,16 +10,15 @@ class ListingSeries extends Component {
         super(props)
         this.state = {
             series:[],
-            archive:[]
+            archive:[],
+            token : localStorage.getItem('token')
         }
     }
     
     callSeries() {
-        //console.log(localStorage.getItem('token'))
-        let token = localStorage.getItem('token')
         axios({
             method: 'get',
-            url: 'https://api.betaseries.com/shows/member?token='+ token +'&key=acf46e44eed6',
+            url: 'https://api.betaseries.com/shows/member?token='+ this.state.token +'&key=acf46e44eed6',
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -58,18 +57,16 @@ class ListingSeries extends Component {
 
     handleArchiveSerie = ev => {
         let id_serie = ev.target.id    
+        console.log(id_serie)
         axios({
             method: 'post',
-            url: 'https://api.betaseries.com/shows/archive?token=443cd9e5760c&key=acf46e44eed6&id='+ id_serie,
+            url: 'https://api.betaseries.com/shows/archive?token='+this.state.token+'&key=acf46e44eed6&id='+ id_serie,
             headers: {
                 'Content-Type': 'application/json',
             }
         })
         .then( res => {
-            this.setState({
-                archive : res.data.show
-            })
-            console.log(res)
+             this.status_archived = res.data.show.user.archived
             if(res.status === 200) {
                 alert('serie archivés')
                 this.componentDidMount()
@@ -79,6 +76,26 @@ class ListingSeries extends Component {
            if(err.request.status === 400){
                alert('Erreur !')
            }
+        })
+    }
+
+    callSeriesArch() {
+        //statut archived .....
+        console.log(this.status_archived)
+        //to do
+        axios({
+            method: 'get',
+            url: 'https://api.betaseries.com/shows/member?token='+ this.state.token +'&key=acf46e44eed6',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then( res => {
+            //console.log(res.data.shows)
+            this.setState({
+                archives : res.data.shows
+            })
+            console.log(this.state)
         })
     }
 
@@ -92,7 +109,7 @@ class ListingSeries extends Component {
     }
     
     render(){
-        if (localStorage.getItem("token") === null) {
+        if (this.state.token === null) {
             alert('veuillez au préalable vous insrcire sur le https://www.betaseries.com/')
             this.deconnexion()
         }else {
@@ -138,11 +155,8 @@ class ListingSeries extends Component {
                       </div>
                   </div>
                 <hr/>
-                <h4>putin c le zga</h4>
-                 {/* en GET la requete  */}
-                 {/* en GET la requete  */}
-                 {/* en GET la requete  */}
-                 {/* en GET la requete pour affihcer les series archivées */}
+                <h3>Series archivées</h3>
+                {/* to do */}
                 {
                     this.state.archive.map((arch, i) => {
                         return(
