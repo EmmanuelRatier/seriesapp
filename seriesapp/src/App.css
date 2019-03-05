@@ -1,3 +1,6 @@
+.row {
+  padding-top:2em;
+}
 .my_modal {
     margin-top:10.5em;
 }
@@ -10,9 +13,38 @@
 .form-style {
     margin-top: 5.5em;
 }
-.cartas {
+
+
+/* listing series */
+.style_card {
   margin-top: 2.8em;
 }
+.card-content {
+  text-align: center;
+}
+.card.small {
+  height: 245px;
+}
+
+/*sidebar*/
+.btn.style_btn.show-on-large{
+  margin: 12px 0px 0px 10px;
+}
+.style_btn i {
+  font-size: 3.3em;
+}
+.sidebar-top {
+  margin-top: 3em;
+}
 .deco {
-  margin:2em;
+  margin-left:1em;
+}
+nav  {
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 0 0 0;
+}
+/*Footer*/
+
+.footer.page-footer.example{
+  background-color: #0d47a1!important;
 }

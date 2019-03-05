@@ -73,7 +73,7 @@ class Auth extends Component{
                             />
                         </div>
                         <div className="input-field center">
-                            <Button className="waves-effect waves-light btn">Se connecter<i class="material-icons left">cloud</i></Button>
+                            <Button className="btn" waves='light'>Se connecter<i class="material-icons left">cloud</i></Button>
                         </div>
                     </form>
                 </Modal>
