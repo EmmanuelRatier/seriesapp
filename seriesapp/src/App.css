@@ -4,6 +4,32 @@
 .my_modal {
   margin-top:10.5em;
 }
+.list_contact {
+  bottom:0px!important;
+}
+.contact_display {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin-left: 15em;
+  width: 1000px;
+  grid-row-gap: 8em;
+}
+.search_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#toast-container >.toast {
+  position: relative;
+  margin-right: 30em;
+  padding-left: 50px;
+  margin-top:7.5em;
+  width: 310px;
+  font-size: 20px;
+}
+
+table{
+  margin-bottom: .5em;
+}
 
 .content-card{
   display:grid;
@@ -18,9 +44,6 @@
   margin-top: 5em;
 }
 
-@media screen and (max-width:1300px) {
-
-}
 @media screen and (max-width:1110px){
   .modal-content div img {
     height:100%
@@ -70,7 +93,10 @@
 .space{
   padding-bottom:2.5em;
 }
-
+.description_serie{
+  width: 820px;
+  text-align: justify;
+}
 /*sidebar*/
 .btn.style_btn.show-on-large{
   margin: 12px 0px 0px 10px;
@@ -93,3 +119,4 @@ nav  {
 .footer.page-footer.example{
   background-color: #0d47a1!important;
 }
+

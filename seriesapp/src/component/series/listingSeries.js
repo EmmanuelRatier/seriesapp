@@ -64,8 +64,8 @@ class ListingSeries extends Component {
         })
         .then( res => {
             if(res.status === 200) {
-                alert('serie archivés')
                 this.componentDidMount()
+                window.Materialize.toast("La série est archivée", 1300)
             }
         })
         .catch((err) => {
@@ -100,8 +100,8 @@ class ListingSeries extends Component {
         })
         .then( res => {
             if(res.status === 200) {
-                alert("la serie n'est plus archivé")
                 this.componentDidMount()
+                window.Materialize.toast("La série n'est plus archivée", 1300)
             }
         })
         .catch((err) => {
@@ -193,7 +193,7 @@ class ListingSeries extends Component {
                                                             <div>
                                                                 <img alt={serie.title} src={serie.images.banner}/>
                                                                 <p>{serie.genres} </p>
-                                                                <p>{serie.description}</p>
+                                                                <p className="description_serie">{serie.description}</p>
                                                                 <p>{serie.seasons} saisons</p>
                                                                 <p>Nombre d'épisode:{serie.episodes}</p>
                                                                 <p>Durée d'un épisode {serie.length} min</p>
@@ -212,24 +212,20 @@ class ListingSeries extends Component {
                                                                         this.state.seasons.map((nbr_seasons, i) => {
                                                                             return(
                                                                                     <Collapsible>
-                                                                                        <CollapsibleItem header={'Saison ' + nbr_seasons.number} icon='filter_drama'>
+                                                                                        <CollapsibleItem header={'Saison ' + nbr_seasons.number} icon='whatshot'>
                                                                                         <div onClick={this.callEpisodes} id={serie.id} className={nbr_seasons.number}>Voir les épisodes de la saison</div>
                                                                                     {
                                                                                         this.state.episodes.map((list_episodes, i) => {
                                                                                             return(
                                                                                                 <div>
-                                                                                                   
-                                                                                                    
-                                                                                                        <div>
-                                                                                                            <p>{list_episodes.title}</p>
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            <p>
-                                                                                                                {list_episodes.description}     
-                                                                                                            </p>
-                                                                                                        </div>
-                                                                                                  
-
+                                                                                                    <div>
+                                                                                                        <p>{list_episodes.title}</p>
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        <p>
+                                                                                                            {list_episodes.description}     
+                                                                                                        </p>
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             )
                                                                                         })
@@ -240,8 +236,7 @@ class ListingSeries extends Component {
                                                                                     )
                                                                                 })
                                                                             }
-                                                                </div>
-                                                              
+                                                                </div>     
                                                             </div>
                                                             
                                                             <div className="input-field left">
