@@ -29,24 +29,10 @@ class Navbar extends Component  {
                 <SideNavItem><Link to={{ pathname: "/dashboard" }} >Mes series</Link></SideNavItem>
                 </div>
                 <SideNavItem divider />
-                <SideNavItem subheader>Subheader</SideNavItem>
+                <SideNavItem subheader>Social</SideNavItem>
+                <SideNavItem><Link to={{ pathname: "/contact" }} >Contact</Link></SideNavItem>
                 <SideNavItem waves href='#!third'><button className="btn deco" onClick={() => this.deconnexion()}>Logout</button></SideNavItem>
               </SideNav>
-              {/* <div class="navbar-fixed">
-                  <nav>
-                      <div class="nav-wrapper">
-                            
-                          <ul class="right hide-on-med-and-down">
-                           <li>
-                                
-                           </li>
-                           <li>
-                               
-                           </li>
-                          </ul>
-                      </div>
-                  </nav>
-              </div> */}
           </div>
         )
     }

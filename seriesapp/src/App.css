@@ -2,13 +2,54 @@
   padding-top:2em;
 }
 .my_modal {
-    margin-top:10.5em;
+  margin-top:10.5em;
 }
+
 .content-card{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-gap: 3.5em;
+  margin: 0px 35px 5px 35px;
+}
+.modal-content div img {
+  width:100%
+}
+.collaps {
+  margin-top: 5em;
+}
+
+@media screen and (max-width:1300px) {
+
+}
+@media screen and (max-width:1110px){
+  .modal-content div img {
+    height:100%
+  }
+  .content-card{
     display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    grid-gap: 3.5em;
-    margin: 0px 35px 5px 35px;
+      grid-template-columns:repeat(3, 1fr);
+      grid-gap: 3.5em;
+      margin: 0px 35px 5px 35px;
+  }
+
+} 
+
+@media screen and (max-width:850px){
+  .content-card{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      grid-gap: 3.5em;
+      margin: 0px 35px 5px 35px;
+  }
+}
+
+@media screen and (max-width:600px){
+    .content-card{
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-gap: 3.5em;
+      margin: 0px 35px 5px 35px;
+  }
 }
 .form-style {
     margin-top: 5.5em;
@@ -24,6 +65,10 @@
 }
 .card.small {
   height: 245px;
+}
+
+.space{
+  padding-bottom:2.5em;
 }
 
 /*sidebar*/
