@@ -3,8 +3,11 @@ import Auth from './component/auth/Auth';
 import Dashboard from './component/Dashboard';
 import Discover from './component/series/Discover'
 import Contact from './component/social/Contact'
+import DarkModeToggle from './component/color/DarkModeToggle';
 
 import './App.css';
+import './styles.scss';
+
 import {
   BrowserRouter,
   Switch,
@@ -23,6 +26,7 @@ class App extends Component {
         <BrowserRouter>
           <div className="App">
             <h2>Series app</h2>
+            <DarkModeToggle />
             <Switch>
               <Route exact path="/" component={Auth}/>
               <Route exact path="/dashboard" component={Dashboard} />    

@@ -42,13 +42,13 @@ class ListingSeries extends Component {
         })
         .then( res => {
             if(res.status === 200) {
-                alert('serie suprimé')
+                window.Materialize.toast("série suprimé", 1300)
                 this.componentDidMount()
             }
         })
         .catch((err) => {
            if(err.request.status === 400){
-               alert('Erreur !')
+            window.Materialize.toast("Erreur", 1300)
            }
         })
     }
@@ -154,6 +154,31 @@ class ListingSeries extends Component {
             alert(err)
         })
     }
+
+    handleVu = ev => {
+        let id_episode = ev.target.id    
+        console.log(id_episode)
+        axios({
+            method: 'post',
+            url: 'https://api.betaseries.com/episodes/watched?token='+this.state.token+'&key=acf46e44eed6&id='+ id_episode,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then( res => {
+            if(res.status === 200) {
+                window.Materialize.toast("Episode marqué comme vue", 1300)
+            }
+
+        })
+        .catch((err) => {
+           if(err.request.status === 400){
+            window.Materialize.toast("Erreur", 1300)
+           }
+        })
+    }
+
+
     componentDidMount(){
         this.callSeries()
         this.callSeriesArch()
@@ -217,15 +242,19 @@ class ListingSeries extends Component {
                                                                                     {
                                                                                         this.state.episodes.map((list_episodes, i) => {
                                                                                             return(
-                                                                                                <div>
+                                                                                                <div className="listing_episodes">
                                                                                                     <div>
                                                                                                         <p>{list_episodes.title}</p>
+                                                                                                        <div className="input-field right space">
+                                                                                                            <Button onClick={this.handleVu} className="waves-teal darken-3 btn-flat" id={list_episodes.id}>Marquer comme vue</Button>
+                                                                                                        </div>
                                                                                                     </div>
                                                                                                     <div>
                                                                                                         <p>
                                                                                                             {list_episodes.description}     
                                                                                                         </p>
                                                                                                     </div>
+                                                                                                    
                                                                                                 </div>
                                                                                             )
                                                                                         })

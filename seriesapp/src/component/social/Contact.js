@@ -102,6 +102,29 @@ handleAddContact = ev => {
     })
 }
 
+    handleBlokContact = ev => {
+        let id_user = ev.target.id    
+        axios({
+            method: 'post',
+            url: 'https://api.betaseries.com/friends/block?token='+this.state.token+'&key=acf46e44eed6&id='+ id_user,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then( res => {
+            if(res.status === 200) {
+                this.componentDidMount()
+                window.Materialize.toast("Contact Bloqué", 1300)
+            }
+        })
+        .catch((err) => {
+        if(err.request.status === 400){
+            alert('Erreur !')
+        }
+        console.log(err)
+        })
+    }
+
    handleChange = (e)  => {
         this.setState({
             [e.target.id]:e.target.value
@@ -160,7 +183,7 @@ handleAddContact = ev => {
                                         <thead>
                                             <tr>
                                             <th data-field="id">Login</th>
-                                            <th data-field="name">Email</th>
+                                            <th data-field="name">Bloque contact</th>
                                             <th data-field="price">Delete contact</th>
                                             </tr>
                                         </thead>
@@ -171,9 +194,13 @@ handleAddContact = ev => {
                                                     <tbody>
                                                         <tr>
                                                         <td>{user.login}</td>
-                                                        <td>{user.mail}</td>
                                                         <td>
-                                                            <div className="input-field">
+                                                            <div>
+                                                                <Button onClick={this.handleBlokContact} id={user.id} className="waves-red btn-flat" waves='light'>Bloquer<i className="material-icons left">cloud</i></Button>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div>
                                                                 <Button onClick={this.handleDelContact} id={user.id} className="waves-red btn-flat" waves='light'>Suppr<i className="material-icons left">cloud</i></Button>
                                                             </div>
                                                         </td>

@@ -76,7 +76,6 @@ class ListingSeries extends Component {
                       <div className="content-card"> 
                           {
                               this.state.discover_series.map((discover_series, i) => {
-                               //console.log(discover_series)
                                 return (
                                     <div>
                                           <div className="style_card">
