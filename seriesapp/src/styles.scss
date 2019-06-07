@@ -33,8 +33,9 @@ body.dark-mode {
   .modal-content p {
     color: #dfdfdf;
   }
-  .card-content {
-    color: #2d3436;
+  .card-content, .card-reveal , .card-action, .card{
+    color: #dfdfdf;
+    background-color: rgb(35, 37, 37);
   }
   .modal-footer {
     background-color: #2d3436;

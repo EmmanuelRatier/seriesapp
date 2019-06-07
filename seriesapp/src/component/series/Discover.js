@@ -10,6 +10,7 @@ class ListingSeries extends Component {
         super(props)
         this.state = {
             discover_series:[],
+            token : localStorage.getItem('token'),
         }
     }
     
@@ -45,7 +46,7 @@ class ListingSeries extends Component {
 
         axios({
             method: 'post',
-            url: 'https://api.betaseries.com/shows/show?token=443cd9e5760c&key=acf46e44eed6&id='+ id_serie,
+            url: 'https://api.betaseries.com/shows/show?token='+this.state.token+'&key=acf46e44eed6&id='+ id_serie,
             headers: {
                 'Content-Type': 'application/json',
             }

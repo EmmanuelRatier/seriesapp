@@ -111,7 +111,7 @@ table{
   padding-bottom:2.5em;
 }
 .description_serie{
-  width: 820px;
+  width: 100%;
   text-align: justify;
 }
 
@@ -141,3 +141,6 @@ table{
   background-color: #0d47a1!important;
 }
 
+footer {
+  margin-top: 6.5em;
+}
