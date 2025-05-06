@@ -9,7 +9,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-materialize": "^2.6.0",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^7.5.2",
     "react-scripts": "2.1.5",
     "use-dark-mode": "^2.3.1"
   },
